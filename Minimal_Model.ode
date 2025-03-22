@@ -1,0 +1,21 @@
+# Minimal Model Calcium Oscillations
+
+# equations
+Z' = v0 + v1*B -v2(Vm2,Z,n,K2) + v3(Vm3,m,Kr,Y,Z,p,Ka) + kf*Y - k*Z
+Y'= v2(Vm2,Z,n,K2) - v3(Vm3,m,Kr,Y,Z,p,Ka) - kf*Y
+
+# parameters
+par v0=1 , v1=7.3 , B=1 , Vm2=65 , n=2 , K2=1 , Vm3=500 , m=2 , Kr=2 , p=4 , Ka=0.9 , kf=1 , k=10
+
+# functions
+v2(Vm2,Z,n,K2) = Vm2 * (Z^n) / (K2^n+Z^n)
+v3(Vm3,m,Kr,Y,Z,p,Ka) = Vm3 * (Y^m)/(Kr^m+Y^m) * (Z^p)/(Ka^p+Z^p)
+
+# initialisations
+init Z=0.1,Y=0.1
+
+
+done
+
+
+
